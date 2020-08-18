@@ -39,11 +39,7 @@ const ContactState = (props) => {
       },
     };
     try {
-      const res = await Axios.post(
-        "http://localhost:5000/api/contacts",
-        formData,
-        config
-      );
+      const res = await Axios.post("/api/contacts", formData, config);
       dispatch({ type: ADD_CONTACT, payload: res.data });
     } catch (error) {
       dispatch({ type: CONTACT_ERROR, payload: error.response.msg });
@@ -56,7 +52,7 @@ const ContactState = (props) => {
       setAuthToken(localStorage.token);
     }
     try {
-      const res = await Axios.get("http://localhost:5000/api/contacts");
+      const res = await Axios.get("/api/contacts");
       dispatch({ type: GET_CONTACTS, payload: res.data });
     } catch (error) {
       dispatch({ type: CONTACT_ERROR, payload: error.response.msg });
@@ -76,7 +72,7 @@ const ContactState = (props) => {
   // Delete Contacts
   const deleteContact = async (id) => {
     try {
-      await Axios.delete(`http://localhost:5000/api/contacts/${id}`);
+      await Axios.delete(`/api/contacts/${id}`);
       dispatch({ type: DELETE_CONTACT, payload: id });
     } catch (error) {
       dispatch({ type: CONTACT_ERROR, payload: error });
@@ -99,7 +95,7 @@ const ContactState = (props) => {
 
     try {
       const res = await Axios.put(
-        `http://localhost:5000/api/contacts/${contact._id}`,
+        `/api/contacts/${contact._id}`,
         contact,
         config
       );
