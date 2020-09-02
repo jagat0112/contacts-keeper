@@ -90,6 +90,7 @@ const AuthState = (props) => {
       });
     }
   };
+
   // Clear Error
   const clearError = () => {
     dispatch({ type: CLEAR_ERRORS });
