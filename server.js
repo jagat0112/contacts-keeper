@@ -13,9 +13,9 @@ connectDB();
 // Init Midddleware
 app.use(express.json({ extended: false }));
 
-app.use("/api/users", require("./routes/users"));
-app.use("/api/auth", require("./routes/auth"));
-app.use("/api/contacts", require("./routes/contacts"));
+const login = require("./routes/login");
+
+app.use("/login", login);
 
 // Serve static assets in production
 if (process.env.NODE_ENV === "production") {
