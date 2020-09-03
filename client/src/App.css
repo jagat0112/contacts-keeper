@@ -19,6 +19,10 @@ body {
   background-color: whitesmoke;
 }
 
+a {
+  text-decoration: none;
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

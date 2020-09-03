@@ -9,9 +9,13 @@ function App() {
     password: "",
   });
 
+  const [login, setLogin] = useState(false);
+
   const onChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
+
+  const covid = "www.covid-19now.live";
 
   const config = {
     headers: {
@@ -28,6 +32,7 @@ function App() {
         config
       );
       console.log(res.data);
+      setLogin(true);
     } catch (error) {
       console.log(error);
     }
@@ -78,7 +83,13 @@ function App() {
               borderRadius: "4px",
             }}
           >
-            Log In
+            {!login ? (
+              "Log In"
+            ) : (
+              <a href={covid} target="_blank" rel="noopener noreferrer">
+                Log In
+              </a>
+            )}
           </button>
         </form>
         <p style={{ color: "#696969", textAlign: "center", margin: "10px 0" }}>
